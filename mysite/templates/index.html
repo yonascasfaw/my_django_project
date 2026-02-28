@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Hacker Shack{% endblock %}
 
 {% block content %}
+
+<!-- Masthead-->
+<header class="masthead text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'img/WebVersionLogoImage.svg' %}" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">You are a guide to the blind, a light for those who are in the dark</h1>
+        <!-- Icon Divider-->s
+    </div>
+</header>
 <h1>
     Home
 </h1>
