@@ -2,4 +2,4 @@
 -r prod.txt
 
 black==24.2.0
-mypy==1.9.0
+mypy==1.19.1
