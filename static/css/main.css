@@ -25,3 +25,49 @@
 .navbar-brand{
     font-family: 'Ekhosphos greek';
 }
+
+.hs-bg-primary {
+  background-color: #BF9F4C;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+  border-bottom: 2px solid transparent;
+  transition: border-bottom .2s, color .2s;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+  color:#BF9F4C;
+  border-color:#BF9F4C;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+  background: none;
+  color: white;
+  border-color:#BF9F4C
+}
+#mainNav .navbar-nav li.nav-item a.nav-link.active:hover {
+  background: none;
+  color:#BF9F4C;
+}
+
+.masthead .masthead-avatar {
+  width: 250px;
+  height: 250px;
+}
+
+.masthead {
+  padding-top: 6rem;
+  padding-bottom: 6rem; 
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.masthead {
+  background-image: url("../img/sunriseEkhosphos.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
