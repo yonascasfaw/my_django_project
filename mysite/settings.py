@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "mysite.apps.accounts",
+    "mysite.apps.contact",
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,13 @@ STATICFILES_DIRS = [
 LOGIN_URL = "accounts:login"
 LOGIN_REDIRECT_URL = "public:index"
 LOGOUT_REDIRECT_URL = "public:index"
+
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = "yonas@ekhosphos.com"
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'apikey'
+# EMAIL_HOST_PASSWORD = '<sendgrid_password>'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True

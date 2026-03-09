@@ -71,3 +71,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.hs-bg-secondary {
+  background-color: #000928;
+}

@@ -8,7 +8,7 @@
         <!-- Contact Section Heading -->
          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Us</h2>
          <!-- Icon Divider -->
-          <div class="divider-customer">
+          <div class="divider-custom">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
             <div class="divider-custom-line"></div>
@@ -22,37 +22,43 @@
                 Do not email us for coding projects we cannot respond to them all
             </p>
             <p>
-                You can also send us an email at <a href="mailto:hackershackofficial@gmail.com">hackershackofficial@gmail.com</a>
+                You can also send us an email at <a href="mailto:hackershackofficial@gmail.com">yonas@ekhosphos.com</a>
             </p>
           </div>
 
           <!-- Contact Section Form -->
            <div class="row">
             <div class="col-lg-8 mx-auto">
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Your message was sent! check your inbox for a response.
+                </div>
+                {% endif %}
+
+
+                <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+                    {% for field in form %}
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Name</label>
-                            <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name." />
-                            <p class="help-block text-danger"></p>
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% for error in field.errors %}
+                            <p class="help-block text-danger"> {{ error }}</p>
+                            {% endfor %}
+                            
                         </div>
                     </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Email Address</label>
-                            <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Message</label>
-                            <input class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter your message." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
+
+                    {% endfor %}
                     <br />
-                    <div id="success"></div>
                     <div class="form-group"><button class="btn hs-bg-primary btn-xl text-white" id="sendMessageButton" type="submit">Send</button></div>
                 </form>
             </div>
